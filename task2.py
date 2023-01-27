@@ -37,7 +37,7 @@ while len(coefs)>1:
     sol=newton(coefs,42)
     print("sol= ",sol)
     coefs=division(coefs,sol)
-    print ("coefs= ",coefs)
+    # print ("coefs= ",coefs)
 
 
 
