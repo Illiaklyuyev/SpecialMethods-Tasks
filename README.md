@@ -26,3 +26,9 @@ coordinate descent method
 fastest coordinate descent method
 (0.9990003071483277, 0.9990869596311326)
 ```
+
+## task4
+```
+minimum by symplex method
+(-0.5470990656512879, -1.546326169145498)
+```
