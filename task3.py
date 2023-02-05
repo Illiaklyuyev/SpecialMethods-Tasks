@@ -6,6 +6,7 @@ Y_SOL=1
 X0=-2
 Y0=1.5
 M=10**-3 
+
 def symemtrypoint(x1,y1,x2,y2,x3,y3):
     k=(y3-y2)/(x3-x2)
     b=y1+1/k*x1
@@ -14,9 +15,6 @@ def symemtrypoint(x1,y1,x2,y2,x3,y3):
     xs=2*xp-x1
     ys=2*yp-y1  
     return xs,ys
-
-    
-
 
 def simplexmeth():
     K=1/5
@@ -55,7 +53,43 @@ def simplexmeth():
                 x12,y12=(x1+x2)/2,(y1+y2)/2
                 x3,y3=(x12+x3)/2,(y12+y3)/2
     return (x1+x2+x3)/3,(y1+y2+y3)/3
-print(simplexmeth())
+# print(simplexmeth())
+
+def coordiantemeth():
+    x=X0
+    y=Y0
+    while abs(x-X_SOL) >= M or abs(y-Y_SOL) >= M:
+        xmin=x-2
+        xmax=x+2
+        while True:
+            xml=(xmax+xmin*2)/3
+            xmr=(xmax*2+xmin)/3
+            if f(xml,y)>f(xmr,y):
+                xmin=xml
+            else:
+                xmax=xmr
+            if xmax-xmin<M:
+                break
+        x=(xmax+xmin)/2
+
+        ymin=y-2
+        ymax=y+2
+        while True:
+            yml=(ymax+ymin*2)/3
+            ymr=(ymax*2+ymin)/3
+            if f(x,yml)>f(x,ymr):
+                ymin=yml
+            else:
+                ymax=ymr
+            if ymax-ymin<M:
+                break
+        y=(ymax+ymin)/2
+    return x,y
+print (coordiantemeth())
+
+
+
+
 
 
 
