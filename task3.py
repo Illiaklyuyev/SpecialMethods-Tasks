@@ -1,3 +1,4 @@
+from math import sqrt
 print ("task3")
 def f(x,y):
     return (1-x)**2 + 100*(y-x**2)**2
@@ -85,7 +86,61 @@ def coordiantemeth():
                 break
         y=(ymax+ymin)/2
     return x,y
-print (coordiantemeth())
+# print (coordiantemeth())
+
+DELTA=10**-3
+def dfdx(x,y):
+    x1=x-DELTA
+    x2=x+DELTA
+    f1= f(x1,y)
+    f2= f(x2,y)
+    dx= x2-x1
+    df= f2-f1
+    return df/dx
+def dfdy(x,y):
+    y1=y-DELTA
+    y2=y+DELTA
+    f1= f(x,y1)
+    f2= f(x,y2)
+    dy= y2-y1
+    df= f2-f1
+    return df/dy
+
+def gradf(x,y):
+    return dfdx(x,y),dfdy(x,y)
+
+def fastestdescentmeth():
+    K=2
+    x=X0
+    y=Y0
+    while abs(x-X_SOL) >= M or abs(y-Y_SOL) >= M:
+        gx,gy=gradf(x,y)
+        gl=sqrt(gx*gx+gy*gy)
+        gx,gy=gx/gl,gy/gl
+        gx,gy=-gx,-gy
+        xmin=x
+        xmax=x+K*gx
+        ymin=y
+        ymax=y+K*gy
+        while True:
+            xml=(xmax+xmin*2)/3
+            xmr=(xmax*2+xmin)/3
+            yml=(ymax+ymin*2)/3
+            ymr=(ymax*2+ymin)/3
+            if f(xml,yml)>f(xmr,ymr):
+                xmin=xml
+                ymin=yml
+            else:
+                xmax=xmr
+                ymax=ymr
+            if abs(xmax-xmin)<M or abs(ymax-ymin)<M:
+                break
+        x=(xmax+xmin)/2
+        y=(ymax+ymin)/2
+    return x,y
+print (fastestdescentmeth())
+
+    
 
 
 

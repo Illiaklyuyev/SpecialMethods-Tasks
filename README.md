@@ -22,4 +22,7 @@ downhill symplex method
 
 coordinate descent method
 (0.9995151116900205, 0.9991280355149004)
+
+fastest coordinate descent method
+(0.9990003071483277, 0.9990869596311326)
 ```
