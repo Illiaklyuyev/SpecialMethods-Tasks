@@ -1,6 +1,9 @@
 from math import sqrt
 print ("task3")
+N=0
 def f(x,y):
+    global N
+    N+=1 
     return (1-x)**2 + 100*(y-x**2)**2
 X_SOL=1
 Y_SOL=1
@@ -54,7 +57,7 @@ def simplexmeth():
                 x12,y12=(x1+x2)/2,(y1+y2)/2
                 x3,y3=(x12+x3)/2,(y12+y3)/2
     return (x1+x2+x3)/3,(y1+y2+y3)/3
-# print(simplexmeth())
+print(simplexmeth())
 
 def coordiantemeth():
     x=X0
@@ -138,7 +141,8 @@ def fastestdescentmeth():
         x=(xmax+xmin)/2
         y=(ymax+ymin)/2
     return x,y
-print (fastestdescentmeth())
+#print (fastestdescentmeth())
+print("N= ",N)
 
     
 
