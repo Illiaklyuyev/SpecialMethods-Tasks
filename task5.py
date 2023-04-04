@@ -1,7 +1,8 @@
 from math import exp,sqrt,cos,sin
 
-# f=open ("fit_Dm_1.dat")
-f=open ("fit_Dm_4.dat")
+f=open ("fit_Dm_3.dat")
+# f=open ("fit_Dm_3.dat")
+# f=open ("fit_Dm_4.dat")
 lines=f.readlines ()
 f.close()
 points=[]
@@ -16,10 +17,10 @@ for line in lines:
     # print (x,y)
 # print(points) 
 
-# def f(x,a,b,c,d):
+# def f(x,a,b,c,d,e,ef,g):
 #     return a*exp(-b*(x-c))+d
 
-# def f(x,a,b,c,d):
+# def f(x,a,b,c,d,e,ef,g):
 #     return a*cos(b*(x-c))+d
 
 def f(x,a,b,c,d,e,ef,g):
